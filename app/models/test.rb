@@ -1,5 +1,6 @@
 class Test < ApplicationRecord
   belongs_to :category
+  has_many :questions
 
   def self.by_category(category)
     query = "JOIN categories ON tests.category_id = categories.id WHERE categories.title = #{ category }"
