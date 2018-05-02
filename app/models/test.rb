@@ -8,10 +8,27 @@ class Test < ApplicationRecord
 
 
   scope :by_category, -> (category_name) { 
-    self.joins(:category).where('categories.title': category_name)
+    self.joins(:category)
+        .where('categories.title': category_name)
   }
 
   scope :easy_level, -> { where level: 0..1 }
   scope :normal_level, -> { where level: 2..4 }
   scope :hard_level, -> { where level: 5..Float::INFINITY }
+
+  validates :title, 
+            :level,
+            :category_id,
+            :author_id,
+            presence: true
+
+  validates :level,
+            numericality: {
+              only_integer: true,
+              greater_than_or_equal_to: 0
+            }
+
+  validates :title,
+            uniqueness: { scope: :level }
+
 end
