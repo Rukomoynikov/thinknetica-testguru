@@ -6,9 +6,12 @@ class Test < ApplicationRecord
   has_many :test_passages
   has_many :users, through: :test_passages
 
-  def self.by_category(category)
-    query = "JOIN categories ON tests.category_id = categories.id WHERE categories.title = #{ category }"
 
-    self.joins(query).order('title desc').pluck(:title)
-  end
+  scope :by_category, -> (category_name) { 
+    self.joins(:category).where('categories.title': category_name)
+  }
+
+  scope :easy_level, -> { where level: 0..1 }
+  scope :normal_level, -> { where level: 2..4 }
+  scope :hard_level, -> { where level: 5..Float::INFINITY }
 end
