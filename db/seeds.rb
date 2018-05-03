@@ -17,17 +17,24 @@ Test.create([
 ])
 
 Question.create([
-	{ body: 'Tag of Header ?', test_id: Test.find(1).id },
-	{ body: 'Tag of Header ?', test_id: Test.find(2).id },	
-	{ body: 'Tag of Header ?', test_id: Test.find(3).id },	
-	{ body: 'Tag of Header ?', test_id: Test.find(4).id },	
-	{ body: 'Tag of Header ?', test_id: Test.find(5).id },	
-	{ body: 'Tag of Header ?', test_id: Test.find(6).id },	
-	{ body: 'Tag of Header ?', test_id: Test.find(7).id },		
-	{ body: 'Tag of Header ?', test_id: Test.find(8).id },		
-	{ body: 'Tag of Header ?', test_id: Test.find(9).id }
+	{ body: 'Tag of Header ?', test_id: Test.first.id },
+	{ body: 'Tag of Header ?', test_id: Test.first.id },	
+	{ body: 'Tag of Header ?', test_id: Test.first.id },	
+	{ body: 'Tag of Header ?', test_id: Test.first.id },	
+	{ body: 'Tag of Header ?', test_id: Test.second.id },	
+	{ body: 'Tag of Header ?', test_id: Test.second.id },	
+	{ body: 'Tag of Header ?', test_id: Test.second.id },		
+	{ body: 'Tag of Header ?', test_id: Test.third.id },		
+	{ body: 'Tag of Header ?', test_id: Test.third.id }
 ])
 
+Answer.create([
+  { body: 'Yes', question_id: Question.first.id },
+  { body: 'No', question_id: Question.first.id },
+  { body: 'Maybe', question_id: Question.first.id },
+  { body: 'Correct', question_id: Question.first.id, correct: true },
+])
+  
 User.create([
 	{ name: 'John' },
 	{ name: 'Mary' }
