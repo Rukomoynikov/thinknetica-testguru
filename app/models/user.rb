@@ -7,12 +7,9 @@ class User < ApplicationRecord
             :name,
             presence: true
 
-  scope :finished_tests, -> {
-
-  }
-
-	# def finished_tests(level)
- #    Test.joins('join results on tests.id = results.test_id')
- #      .where("results.user_id = #{ self.id } and tests.level = #{ level }")
-	# end
+	def finished_tests(level)
+    TestPassage
+      .where(user: User.first, finished: true, 'tests.level': level)
+      .includes(:test)
+	end
 end
