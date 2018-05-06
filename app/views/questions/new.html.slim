@@ -1,0 +1,8 @@
+h1 
+  | Создание вопроса к тесту 
+  = @test.title
+
+= form_tag test_questions_path, method: 'post' do
+  = text_field_tag 'question[body]'
+  = hidden_field_tag 'question[test_id]', params[:test_id]
+  = button_tag 'Создать'
