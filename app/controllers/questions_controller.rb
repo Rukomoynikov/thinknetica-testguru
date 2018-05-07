@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_test
+  before_action :set_test, only: [:index, :new, :create]
   before_action :set_question, only: [:show, :delete]
 
   rescue_from ActiveRecord::RecordNotFound, 
@@ -17,11 +17,9 @@ class QuestionsController < ApplicationController
     redirect_to test_questions_path(@test)
   end
 
-  def show
-    render json: @question
-  end
+  def show; end
 
-  def delete
+  def destroy
     @question.destroy
 
     redirect_to test_questions_path(@test)
@@ -34,7 +32,7 @@ class QuestionsController < ApplicationController
   end
 
   def set_question
-    @question = @test.questions.find(params[:id])
+    Question.find(params[:id])
   end
 
   def question_params
