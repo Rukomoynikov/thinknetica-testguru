@@ -13,8 +13,9 @@
     <%= yield %>
 
     <footer>
-      <%= Time.now.year %>
-      | Maksim R
+      <%= current_year %>
+      | <%= link_to 'Maksim R', 
+        github_url('Rukomoynikov', 'thinknetica-testguru') %>
       | <%= link_to 'TestGuru',
         'https://github.com/Rukomoynikov/thinknetica-testguru' %>
       | <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 

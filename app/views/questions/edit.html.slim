@@ -1,6 +1,5 @@
 h1 
-  | Создание вопроса к тесту 
-  = @question.test.title
+  = question_form_title (@question.test.title)
 
 = render 'form'
 
