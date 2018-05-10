@@ -13,7 +13,12 @@
     <%= yield %>
 
     <footer>
-      
+      <%= Time.now.year %>
+      | Maksim R
+      | <%= link_to 'TestGuru',
+        'https://github.com/Rukomoynikov/thinknetica-testguru' %>
+      | <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 
+        'https://thinknetica.com' %>
     </footer>
   </body>
 </html>
