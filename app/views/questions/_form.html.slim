@@ -2,7 +2,7 @@
   = hidden_field_tag 'question[test_id]', params[:test_id] || @question.test.id
 
   / = @question.errors.full_messages
-  = render 'shared/errors', resource: @question if @question.errors.present?
+  = render 'shared/errors', resource: @question
 
   p 
     = f.label :body

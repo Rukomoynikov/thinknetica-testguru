@@ -1,10 +1,9 @@
 module QuestionHelper
-  def question_form_title(title)
-    title_type = {
-      new: 'Create New',
-      edit: 'Edit'
-    }
-
-    "#{ title_type[action_name.to_sym] } #{ title }"
+  def question_form_title(record, title)
+    if record.persisted?
+      "Edit question for test #{ title }"      
+    else
+      "Create new question for test #{ title }"      
+    end
   end
 end
