@@ -11,5 +11,18 @@
 
   <body>
     <%= yield %>
+
+    <footer>
+      <%= current_year %>
+      | <%= link_to 'Maksim R', 
+        github_url('Rukomoynikov', 'thinknetica-testguru'), 
+        target: :blank %>
+      | <%= link_to 'TestGuru',
+        'https://github.com/Rukomoynikov/thinknetica-testguru',
+        target: :blank  %>
+      | <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 
+        'https://thinknetica.com',
+        target: :blank  %>
+    </footer>
   </body>
 </html>
