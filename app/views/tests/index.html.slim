@@ -5,3 +5,5 @@ ul
     li
       = link_to test_path(test) do
         | #{ test.title } - #{ test.questions.count } вопросов
+      | 
+      = button_to 'Start', start_test_path(test)
