@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_14_151204) do
+ActiveRecord::Schema.define(version: 2018_05_27_125311) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2018_05_14_151204) do
     t.integer "test_id", null: false
     t.boolean "finished"
     t.integer "current_question_id"
-    t.integer "correct_questions"
+    t.integer "correct_questions", default: 0
     t.index ["current_question_id"], name: "index_tests_users_on_current_question_id"
   end
 
