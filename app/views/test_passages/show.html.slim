@@ -1,5 +1,7 @@
 h1 Pass the test #{ @test_passage.test.title } Test
 
+p #{ question_number(@test_passage) } from #{ @test_passage.test.questions.count }
+
 b
   = @test_passage.current_question.body
 

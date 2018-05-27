@@ -10,4 +10,8 @@ module TestPassagesHelper
 
     message.html_safe
   end
+
+  def question_number(test_passage)
+    test_passage.test.questions.find_index { |question| question.id == test_passage.current_question.id } + 1
+  end
 end
