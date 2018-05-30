@@ -8,7 +8,7 @@ class TestPassage < ApplicationRecord
               optional: true
 
   before_validation :before_validation_set_first, on: :create
-  after_validation :after_update_set_next_question, on: :update
+  after_validation :after_validation_set_next_question, on: :update
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
@@ -20,6 +20,10 @@ class TestPassage < ApplicationRecord
 
   def completed?
     current_question.nil?
+  end
+
+  def success?
+    (100 *  correct_questions) / test.questions.count
   end
 
   private
@@ -39,7 +43,7 @@ class TestPassage < ApplicationRecord
     current_question.answers.correct
   end
 
-  def after_update_set_next_question
+  def after_validation_set_next_question
     self.current_question = test
                       .questions
                       .order(:id)
