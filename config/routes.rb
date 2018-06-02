@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root to: 'tests#index'
 
-  resources :users, only: :create
+  resources :users, :sessions, only: :create
   get :signup, to: 'users#new'
+  get :login, to: 'sessions#new'
   
   resources :tests, shallow: true do
       post :start, on: :member
