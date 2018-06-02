@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <p>Welcome, <%= current_user.email %> </p>
+    <% end %>
+
     <%= yield %>
     
     <footer class='footer'>
