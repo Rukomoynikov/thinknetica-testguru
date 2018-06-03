@@ -10,9 +10,7 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <p>Welcome, <%= current_user.email %> [<%= link_to 'Exit', signout_path, method: :delete %>] </p>
-    <% end %>
+    <%= render 'shared/navigation' %>
 
     <%= yield %>
     

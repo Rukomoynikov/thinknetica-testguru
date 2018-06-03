@@ -1,0 +1,8 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+
+  &__signup {
+    margin-right: 20px;
+  }
+}
