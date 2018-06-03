@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users, :sessions, only: :create
   get :signup, to: 'users#new'
   get :login, to: 'sessions#new'
-  
+  delete :signout, to: 'sessions#destroy'
+
   resources :tests, shallow: true do
       post :start, on: :member
       resources :questions, except: [:index] do
