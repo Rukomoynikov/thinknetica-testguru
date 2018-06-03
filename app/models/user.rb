@@ -7,6 +7,9 @@ class User < ApplicationRecord
             :name,
             presence: true
 
+  validates :email, uniqueness: true
+  validates :email, format: /.+@.+\..{2,4}/
+
   has_secure_password
   
 	def finished_tests(level)
