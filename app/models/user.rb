@@ -7,6 +7,10 @@ class User < ApplicationRecord
             :name,
             presence: true
 
+  validates :email, uniqueness: true, format: /.+@.+\..{2,4}/
+
+  has_secure_password
+  
 	def finished_tests(level)
     TestPassage
       .where(user: User.first, finished: true, 'tests.level': level)
