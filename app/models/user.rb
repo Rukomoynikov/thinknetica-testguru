@@ -1,16 +1,20 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, 
+         :registerable,
+         :recoverable, 
+         :rememberable, 
+         :trackable, 
+         :validatable,
+         :confirmable
+
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :created_tests, class_name: "Test", foreign_key: "author_id"
 
-  validates :email, 
-            :name,
-            presence: true
+  validates :email, presence: true
 
   validates :email, uniqueness: true, format: /.+@.+\..{2,4}/
 
-  has_secure_password
-  
 	def finished_tests(level)
     TestPassage
       .where(user: User.first, finished: true, 'tests.level': level)
