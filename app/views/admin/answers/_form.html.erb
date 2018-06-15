@@ -1,5 +1,6 @@
-<%= form_with(model: [@question, @answer ], local: true) do |form| %>
-  
+<%= form_with(model: [:admin, @question, @answer ], local: true) do |form| %>
+  <%= form.hidden_field :question_id %>
+
   <p>
     <%= form.label :body %>
     <%= form.text_area :body %>

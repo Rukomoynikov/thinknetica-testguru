@@ -25,7 +25,7 @@ class Admin::QuestionsController < Admin::BaseController
     @question = Question.find(params[:id])
 
     if @question.update question_params
-      redirect_to test_path(@question.test)
+      redirect_to admin_test_path(@question.test)
     else 
       render :edit
     end
