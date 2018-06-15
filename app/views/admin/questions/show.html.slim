@@ -1,6 +1,4 @@
-h1 Question: #{ @question.body }
-
-= link_to 'New Answer', new_admin_question_answer_path(@question)
+h1 Question: #{ @question.body } (#{ link_to 'add answer', new_admin_question_answer_path(@question) })
 
 p Answers list:
 

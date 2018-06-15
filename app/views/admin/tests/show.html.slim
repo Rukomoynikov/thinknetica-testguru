@@ -1,9 +1,4 @@
-h1 = "Test #{ @test.title }"
-
-= link_to 'Add new question', new_admin_test_question_path(@test)
-
-br
-br
+h1 Test #{ @test.title } (#{ link_to 'add question', new_admin_test_question_path(@test) })
 
 table
   thead
