@@ -1,0 +1,9 @@
+h1 List of Test
+
+ul 
+  - @tests.each do |test|
+    li
+      = link_to admin_test_path(test) do
+        | #{ test.title } - #{ test.questions.count } вопросов
+      | 
+      = button_to 'Start', start_test_path(test)

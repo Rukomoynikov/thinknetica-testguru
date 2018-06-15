@@ -1,4 +1,4 @@
-class TestsController < ApplicationController
+class Admin::TestsController < Admin::BaseController
   before_action :set_test, only: [:show, :start]
 
   def index
@@ -6,6 +6,10 @@ class TestsController < ApplicationController
   end
 
   def show; end
+
+  def set_test
+    @test = Test.find(params[:id])
+  end
 
   def start
     current_user.tests << @test
@@ -21,9 +25,5 @@ class TestsController < ApplicationController
     test_passage = current_user.test_passages.last
 
     TestsMailer.started_test(test_passage).deliver_now
-  end
-
-  def set_test
-    @test = Test.find(params[:id])
   end
 end

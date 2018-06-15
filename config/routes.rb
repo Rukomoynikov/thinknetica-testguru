@@ -7,14 +7,22 @@ Rails.application.routes.draw do
 
   delete :signout, to: 'sessions#destroy'
 
-  resources :tests, shallow: true do
-      post :start, on: :member
-      resources :questions, except: [:index] do
-      resources :answers, except: :index
-    end
+  resources :tests, only: :index, shallow: true do
+    post :start, on: :member
   end
 
   resources :test_passages, only: [:show, :update] do
     get 'result', on: :member
   end
+
+  namespace :admin do
+    root to: 'tests#index'
+
+    resources :tests, shallow: true do
+      resources :questions, except: :index do
+        resources :answers, except: :index
+      end
+    end
+  end
+
 end
