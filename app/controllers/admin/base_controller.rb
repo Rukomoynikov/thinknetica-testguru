@@ -7,6 +7,6 @@ class Admin::BaseController < ApplicationController
 
   def admin_required!
     message = 'You are not authorized to do this'
-    redirect_to root_path, alert: message unless current_user.is_a?(Admin)
+    redirect_to root_path, alert: message unless current_user.admin?
   end
 end

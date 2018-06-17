@@ -7,8 +7,8 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = Test.new(test_params)
-
+    @test = current_user.created_tests.new(test_params)
+    
     if @test.save
       redirect_to admin_tests_path
     else
@@ -39,14 +39,6 @@ class Admin::TestsController < Admin::BaseController
     @test = Test.find(params[:id])
   end
 
-  def start
-    current_user.tests << @test
-
-    send_starting_email
-
-    redirect_to current_user.test_passage(@test)
-  end
-
   private 
 
   def send_starting_email
@@ -56,6 +48,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :category_id, :level, :author_id)
+    params.require(:test).permit(:title, :category_id, :level)
   end
 end
