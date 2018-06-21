@@ -1,0 +1,19 @@
+= form_with model: [:admin, @test], local: true do |f|
+  = render 'shared/errors', resource: @test
+
+  = f.hidden_field :author_id, value: current_user.id
+
+  p 
+    = f.label :title
+    = f.text_field :title
+
+  p 
+    = f.label :level
+    = f.select :level, 1..5
+
+  p 
+    = f.label :category_id
+    = f.collection_select :category_id, Category.all, :id, :title, include_blank: true
+
+  p 
+    = f.submit

@@ -1,6 +1,5 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :start]
-  before_action :set_user, only: [:start]
 
   def index
     @tests = Test.all
@@ -8,17 +7,23 @@ class TestsController < ApplicationController
 
   def show; end
 
+  def start
+    current_user.tests << @test
+
+    send_starting_email
+
+    redirect_to current_user.test_passage(@test)
+  end
+
+  private 
+
+  def send_starting_email
+    test_passage = current_user.test_passages.last
+
+    TestsMailer.started_test(test_passage).deliver_now
+  end
+
   def set_test
     @test = Test.find(params[:id])
-  end
-
-  def start
-    @user.tests << @test
-
-    redirect_to @user.test_passage(@test)
-  end
-
-  def set_user
-    @user = current_user
   end
 end

@@ -1,0 +1,8 @@
+h1 Question: #{ @question.body } (#{ link_to 'add answer', new_admin_question_answer_path(@question) })
+
+p Answers list:
+
+ol
+  = render @question.answers
+
+= render 'buttons'
