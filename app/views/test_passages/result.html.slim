@@ -1,6 +1,6 @@
-h1 The Test #{ @test_passage.test.title } was completed!
+h1 = t('.title', title: @test_passage.test.title)
 
 = result_message(@test_passage)
 
 p 
-  = link_to 'Перейти ко всем тестам', tests_path
+  = link_to t('.link_to_tests'), tests_path

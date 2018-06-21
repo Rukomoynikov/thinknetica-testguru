@@ -1,0 +1,77 @@
+ru:
+  admin:
+    title: панель управления
+    tests:
+      index:
+        title: список тестов
+        new_test: новый тест
+        edit_test: редактировать
+        question: 
+          one: вопрос
+          few: вопросов
+          other: вопросов
+          many: вопросов
+      new:
+        title: новый тест
+      show:
+        title: "тест %{title}"
+        add_question: добавить вопрос
+        edit: редактировать
+        show: открыть
+        delete: удалить
+        questions_list: список вопросов
+        actions: действия
+        prompt: вы уверены ?
+    questions:
+      edit:
+        title: редактирование вопроса для теста %{test}
+      new:
+        title: создание вопроса для теста %{test}
+      show:
+        title: вопрос
+        answers_list: список ответов
+        add_answer: добавить ответ
+    answers:
+      new:
+        title: Новый ответ
+      edit:
+        title: редактировать ответ
+  shared:
+    errors:
+      error:
+        one: "обнаружена %{count} ошибка"
+        few: "обнаружено %{count} ошибки"
+        other: "обнаружено %{count} ошибок"
+        many: "обнаружено %{count} ошибок"
+    navigation:
+      signup: регистрация 
+      signin: войти
+    admin_navigation:
+      signup: регистрация 
+      signin: войти
+  tests:
+    index:
+      title: список тестов
+  test_passages:
+    show:
+      title: "пройдите тест %{title}"
+      next: далее
+      from: из
+    result:
+      title: "тест %{title} завершен!"
+      success_message: "вы прошли тест, ваш результат %{percent}%"
+      fail_message: "тест не пройден, ваш результат %{percent}%"
+      link_to_tests: перейти ко всем тестам
+  application:
+    title: гуру вопросов и ответов
+    welcome: привет
+    exit: выйти
+    start: начать
+
+  helpers:
+    select:
+      prompt: выберите значение
+    submit:
+      create: 'создать %{model}'
+      update: 'обновить %{model}'
+      submit: 'сохранить %{model}'

@@ -1,7 +1,7 @@
-h1 List of Test
+h1 #{ t('.title').mb_chars.capitalize.to_s }
 
 ul 
   - @tests.each do |test|
     li
-      span #{ test.title } - #{ test.questions.count } вопросов
-      = button_to 'Start', start_test_path(test)
+      span #{ test.title }
+      = button_to t('application.start'), start_test_path(test)

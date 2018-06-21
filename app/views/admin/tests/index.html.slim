@@ -1,9 +1,9 @@
-h1 List of Test (#{ link_to 'add new', new_admin_test_path })
+h1 #{ t('.title') } (#{ link_to t('.new_test'), new_admin_test_path })
 
 ul 
   - @tests.each do |test|
     li
       = link_to admin_test_path(test) do
-        | #{ test.title } - #{ test.questions.count } вопросов
+        | #{ test.title } - #{ test.questions.count } #{ t('.question', count: test.questions.count)} 
       | 
-      = button_to 'Edit', edit_admin_test_path(test)
+      = button_to t('.edit_test'), edit_admin_test_path(test)
