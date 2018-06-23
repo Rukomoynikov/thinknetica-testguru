@@ -17,6 +17,9 @@ ru:
       answer: 
         body: текст ответа
         correct: верный
+      user:
+        first_name: Имя
+        last_name: Отчество
     errors:
       messages:
         blank: не может быть пустым
