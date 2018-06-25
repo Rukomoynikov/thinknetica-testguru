@@ -1,13 +1,19 @@
-.navigation
+header.navbar.navbar-expand.navbar-dark.flex-column.flex-md-row.bd-navbar
   = link_to t('application.title').mb_chars.capitalize.to_s, 
     root_path, 
-    class: 'navigation__logo'
-
-  .navigation__buttons
-    - if user_signed_in?
-      . #{ t('application.welcome' ).mb_chars.capitalize.to_s }, 
-        #{ current_user.email } 
-        [ #{ link_to t('application.exit' ), destroy_user_session_path, method: :delete } ]
-    - else
-      = link_to t('.signup'), new_user_registration_path, class: 'navigation__signup'
-      = link_to t('.signin'), new_user_session_path
+    class: 'navbar-brand mr-0 mr-md-2'
+  .navbar-nav-scroll.ml-md-auto
+    ul.navbar-nav.bd-navbar-nav.flex-row 
+      - if user_signed_in?
+        li.nav-item.nav-link #{ t('application.welcome' ).mb_chars.capitalize.to_s }, 
+          #{ current_user.email } 
+          [ #{ link_to t('application.exit' ), destroy_user_session_path, method: :delete } ]
+      - else
+        li.nav-item
+          = link_to t('.signup'), 
+            new_user_registration_path, 
+            class: 'nav-link'
+        li.nav-item
+          = link_to t('.signin'), 
+            new_user_session_path,
+            class: 'nav-link'

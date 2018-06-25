@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
+    flash[:info] = "Привет, #{ resource.first_name } #{ resource.last_name }!"
+
     path = if resource.is_a?(Admin) 
       admin_root_path
     else
@@ -13,8 +15,6 @@ class ApplicationController < ActionController::Base
     end
 
     path
-
-    flash[:info] = "Привет, #{ resource.first_name } #{ resource.last_name }!"
   end
 
   def configure_permitted_parameters
