@@ -23,7 +23,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    (100 *  correct_questions) / test.questions.count
+    (100 *  correct_questions) / test.questions.count > 50
   end
 
   private

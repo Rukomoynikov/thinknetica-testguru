@@ -1,9 +1,13 @@
 .navigation
-  = link_to 'Test Guru Application', root_path, class: 'navigation__logo'
+  = link_to t('application.title').mb_chars.capitalize.to_s, 
+    root_path, 
+    class: 'navigation__logo'
 
   .navigation__buttons
     - if user_signed_in?
-      div Welcome, #{ current_user.email } [ #{ link_to 'Exit', destroy_user_session_path, method: :delete } ]
+      . #{ t('application.welcome' ).mb_chars.capitalize.to_s }, 
+        #{ current_user.email } 
+        [ #{ link_to t('application.exit' ), destroy_user_session_path, method: :delete } ]
     - else
-      = link_to 'Sign up', new_user_registration_path, class: 'navigation__signup'
-      = link_to 'Sign in', new_user_session_path
+      = link_to t('.signup'), new_user_registration_path, class: 'navigation__signup'
+      = link_to t('.signin'), new_user_session_path

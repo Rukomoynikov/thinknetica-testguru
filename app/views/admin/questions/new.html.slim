@@ -1,5 +1,4 @@
-h1 
-  = question_form_title(@question, @test.title)
+h1 = t('.title', test: @test.title)
 
 = render 'form'
 

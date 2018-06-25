@@ -1,6 +1,6 @@
-h1 Question: #{ @question.body } (#{ link_to 'add answer', new_admin_question_answer_path(@question) })
+h1 #{ t('.title') }: #{ @question.body } (#{ link_to t('.add_answer'), new_admin_question_answer_path(@question) })
 
-p Answers list:
+p #{ t('.answers_list') }:
 
 ol
   = render @question.answers

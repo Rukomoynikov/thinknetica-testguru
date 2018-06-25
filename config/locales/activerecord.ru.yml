@@ -1,0 +1,26 @@
+ru:
+  activerecord:
+    models: 
+      test: тест
+      question: вопрос
+      answer: ответ
+    attributes:
+      test:
+        title: заголовок
+        level: уровень
+        category_id: категория
+        category: категория
+      question: 
+        body: текст вопроса
+        test_id: тест
+        test: тест
+      answer: 
+        body: текст ответа
+        correct: верный
+      user:
+        first_name: Имя
+        last_name: Отчество
+    errors:
+      messages:
+        blank: не может быть пустым
+        required: обязательно к заполнению

@@ -1,6 +1,6 @@
-h1 Pass the test #{ @test_passage.test.title } Test
+h1 =t('.title', title: @test_passage.test.title) 
 
-p #{ question_number(@test_passage) } from #{ @test_passage.test.questions.count }
+p #{ question_number(@test_passage) } #{ t('.from') } #{ @test_passage.test.questions.count }
 
 b
   = @test_passage.current_question.body
@@ -16,5 +16,5 @@ b
       = b.label
   
   p 
-    = form.submit 'Next'
+    = form.submit t('.next')
 
