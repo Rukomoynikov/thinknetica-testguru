@@ -1,2 +1,2 @@
 - flash.each do |key, message|
-  = content_tag :div,  message, class: "alert-#{ key }"
+  = content_tag :div,  message, class: "alert #{ flash_class(key.to_sym) }"

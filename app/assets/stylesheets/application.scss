@@ -18,11 +18,3 @@ body {
   line-height: 60px;
   background-color: #f5f5f5;
 }
-
-.alert-alert {
-  @extend .alert-danger;
-}
-
-.alert-check {
-  @extend .alert-danger;
-}
