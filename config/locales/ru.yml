@@ -57,6 +57,9 @@ ru:
       title: "пройдите тест %{title}"
       next: далее
       from: из
+    gist:
+      success: Gist сохранён успешно
+      failure: Gist не был сохранён
     result:
       title: "тест %{title} завершен!"
       success_message: "вы прошли тест, ваш результат %{percent}%"

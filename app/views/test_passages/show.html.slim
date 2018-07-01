@@ -2,6 +2,10 @@ h1 =t('.title', title: @test_passage.test.title)
 
 p #{ question_number(@test_passage) } #{ t('.from') } #{ @test_passage.test.questions.count }
 
+= link_to 'Создать Gist', 
+          gist_test_passage_path(@test_passage),
+          method: :post
+
 b
   = @test_passage.current_question.body
 

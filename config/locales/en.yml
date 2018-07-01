@@ -53,6 +53,9 @@ en:
       title: "test %{title}"
       next: next
       from: from
+    gist:
+      success: Gist сохранён успешно
+      failure: Gist не был сохранён
     result:
       title: "test %{title} completed!"
       success_message: "test successed with result score %{percent}%"

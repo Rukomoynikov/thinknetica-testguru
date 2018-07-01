@@ -66,3 +66,5 @@ gem 'rails-i18n', '~>5.0'
 gem 'devise-i18n'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem "octokit", "~> 4.0"
+gem 'dotenv-rails', groups: [:development, :test]
