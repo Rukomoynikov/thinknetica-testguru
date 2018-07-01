@@ -53,9 +53,10 @@ en:
       title: "test %{title}"
       next: next
       from: from
+      create_gist: create gist
     gist:
-      success: Gist сохранён успешно
-      failure: Gist не был сохранён
+      success: "<a href='%{gist_link}'>Gist</a> created"
+      failure: Gist creation failed
     result:
       title: "test %{title} completed!"
       success_message: "test successed with result score %{percent}%"
