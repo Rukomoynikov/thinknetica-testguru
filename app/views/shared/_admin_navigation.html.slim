@@ -1,11 +1,14 @@
 header.navbar.navbar-expand.navbar-dark.flex-column.flex-md-row.bd-navbar
   = link_to t('application.title').mb_chars.capitalize.to_s, 
-    admin_root_path, 
+    root_path, 
     class: 'navbar-brand mr-0 mr-md-2'
-  .navbar-nav-scroll
-    .navbar-nav.bd-navbar-nav.flex-row
-      li.nav-item
-        = link_to 'Gists', admin_gists_path, class: 'nav-link'
+  - if user_signed_in?
+    .navbar-nav-scroll
+      .navbar-nav.bd-navbar-nav.flex-row
+        li.nav-item
+          = link_to 'Gists', admin_gists_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'Test', admin_tests_path, class: 'nav-link'
 
   .navbar-nav-scroll.ml-md-auto
     ul.navbar-nav.bd-navbar-nav.flex-row 

@@ -28,7 +28,7 @@ class TestPassagesController < ApplicationController
       gist_hash: result.id
     }
 
-    Gist.create gist_params
+    current_user.gists.create gist_params
 
     flash_options = if result.html_url.present?
       { notice: t('.success', gist_link: gist_link)}

@@ -26,9 +26,6 @@ class TestPassage < ApplicationRecord
     (100 *  correct_questions) / test.questions.count > 50
   end
 
-  def gist
-  end
-
   private
 
   def before_validation_set_first

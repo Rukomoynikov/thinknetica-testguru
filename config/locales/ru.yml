@@ -71,7 +71,8 @@ ru:
     welcome: привет
     exit: выйти
     start: начать
-
+  gist:
+    title: Вопрос о %{title} с сайта TestGuru
   helpers:
     select:
       prompt: выберите значение

@@ -67,7 +67,8 @@ en:
     welcome: welcome
     exit: exit
     start: start
-
+  gist:
+    title: A question about %{title} from TestGuru
   helpers:
     select:
       prompt: select
