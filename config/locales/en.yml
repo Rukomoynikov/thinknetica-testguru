@@ -53,6 +53,10 @@ en:
       title: "test %{title}"
       next: next
       from: from
+      create_gist: create gist
+    gist:
+      success: "<a href='%{gist_link}'>Gist</a> created"
+      failure: Gist creation failed
     result:
       title: "test %{title} completed!"
       success_message: "test successed with result score %{percent}%"
@@ -63,7 +67,8 @@ en:
     welcome: welcome
     exit: exit
     start: start
-
+  gist:
+    title: A question about %{title} from TestGuru
   helpers:
     select:
       prompt: select

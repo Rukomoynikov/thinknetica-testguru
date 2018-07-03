@@ -57,6 +57,10 @@ ru:
       title: "пройдите тест %{title}"
       next: далее
       from: из
+      create_gist: создать gist
+    gist:
+      success: "<a href='%{gist_link}'>Gist</a> сохранён успешно"
+      failure: Gist не был сохранён
     result:
       title: "тест %{title} завершен!"
       success_message: "вы прошли тест, ваш результат %{percent}%"
@@ -67,7 +71,8 @@ ru:
     welcome: привет
     exit: выйти
     start: начать
-
+  gist:
+    title: Вопрос о %{title} с сайта TestGuru
   helpers:
     select:
       prompt: выберите значение
