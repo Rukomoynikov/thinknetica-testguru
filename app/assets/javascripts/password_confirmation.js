@@ -10,13 +10,17 @@ document.addEventListener('turbolinks:load', function() {
   }
 
   function comparePasswords () {
-    if (password_confirmation_input.value == '') return
+    if (password_confirmation_input.value == '') {
+      password_input.className = ''
+      password_input.className = ''
+      return
+    }
   
     if (password_input.value == password_confirmation_input.value ) {
       password_input.className = 'input--correct'
-      password_input.className = 'input--correct'
+      password_confirmation_input.className = 'input--correct'
     } else {
-      password_confirmation_input.className = 'input--error'
+      password_input.className = 'input--error'
       password_confirmation_input.className = 'input--error'
     }
   }
