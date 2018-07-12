@@ -1,5 +1,7 @@
 h1 #{ t('.title') } (#{ link_to t('.new_test'), new_admin_test_path })
 
+= render 'shared/errors', resource: @test
+
 table.table
   thead
     tr
@@ -12,10 +14,4 @@ table.table
       th colspan='4' Actions 
   tbody
     - @tests.each do |test|
-      tr
-        td
-          = link_to test.title, admin_test_path(test)
-        td = test.level
-        td #{ test.questions.count } #{ t('.question', count: test.questions.count)}
-        td colspan='4'
-          = button_to t('.edit_test'), edit_admin_test_path(test)
+      = render test

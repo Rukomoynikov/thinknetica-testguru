@@ -1,7 +1,7 @@
-- if resource.errors.present?
+- if resource.present? && resource.errors.present?
+  = content_tag :div, class: 'resource-errors', data: { resource_id: resource.id } do
+    strong #{ t('.error', count: resource.errors.count) }
 
-  strong #{ t('.error', count: resource.errors.count) }
-
-  ul 
-    - resource.errors.full_messages.each do |error|
-      li = error
+    ul 
+      - resource.errors.full_messages.each do |error|
+        li = error

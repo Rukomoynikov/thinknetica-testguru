@@ -1,0 +1,24 @@
+= form_with model: [:admin, test], 
+  url: update_inline_admin_test_path(test), 
+  class: 'form-inline hide',
+  method: :patch,
+  data: { test_id: test.id },
+  local: true do |f|
+
+  = f.text_field :title, class: 'form-control mr-2'
+  = f.submit t('.submit'), class: 'btn btn-primary'
+
+  / p 
+  /   = f.label :title
+    
+
+  / p 
+  /   = f.label :level
+  /   = f.select :level, 1..5
+
+  / p 
+  /   = f.label :category_id
+  /   = f.collection_select :category_id, Category.all, :id, :title, include_blank: true
+
+  / p 
+  /   = f.submit

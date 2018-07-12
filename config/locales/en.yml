@@ -20,6 +20,8 @@ en:
         questions_list: question list
         actions: actions
         prompt: are you sure ?
+      form_inline:
+        submit: 'OK'
     questions:
       edit:
         title: edit question for test %{test}

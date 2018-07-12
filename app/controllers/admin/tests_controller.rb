@@ -1,9 +1,20 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :set_test, only: [:show, :start, :edit]
+  before_action :set_tests, only: [:index, :update_inline]
+  before_action :set_test, only: [:show, :start, :edit, :update_inline]
+
+  def index; end
 
   def new
     @test = Test.new
     @test.author = current_user
+  end
+
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path
+    else
+      render :index
+    end
   end
 
   def create
@@ -29,10 +40,6 @@ class Admin::TestsController < Admin::BaseController
   def edit
   end
 
-  def index
-    @tests = Test.all
-  end
-
   def show; end
 
   def set_test
@@ -49,5 +56,9 @@ class Admin::TestsController < Admin::BaseController
 
   def test_params
     params.require(:test).permit(:title, :category_id, :level)
+  end
+
+  def set_tests
+    @tests = Test.all
   end
 end
