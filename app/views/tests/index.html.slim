@@ -1,7 +1,18 @@
 h1 #{ t('.title').mb_chars.capitalize.to_s }
 
-ul 
-  - @tests.each do |test|
-    li
-      span #{ test.title }
-      = button_to t('application.start'), start_test_path(test)
+table.table
+  thead
+    tr
+      th.sort-by-title.pointer
+        | Title
+        = octicon 'arrow-up', class: 'text-success hide'
+        = octicon 'arrow-down', class: 'text-success hide'
+      th Level
+      th Question
+  tbody
+    - @tests.each do |test|
+      tr
+        td
+          = link_to test.title, admin_test_path(test)
+        td = test.level
+        td #{ test.questions.count } #{ t('.question', count: test.questions.count)}
