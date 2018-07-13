@@ -1,5 +1,7 @@
 h1 =t('.title', title: @test_passage.test.title) 
 
+= render 'progress', progress: @test_passage.progress
+
 p #{ question_number(@test_passage) } #{ t('.from') } #{ @test_passage.test.questions.count }
 
 p: b

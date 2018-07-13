@@ -1,4 +1,6 @@
 class TestPassage < ApplicationRecord
+  include TestPassagesHelper
+
   self.table_name = 'tests_users'
 
   belongs_to :user
@@ -24,6 +26,14 @@ class TestPassage < ApplicationRecord
 
   def success?
     (100 *  correct_questions) / test.questions.count > 50
+  end
+
+  def progress
+    current_progress = question_number(self)
+
+    return 0 if current_progress.zero?
+
+    (current_progress * 100) / test.questions.count
   end
 
   private
