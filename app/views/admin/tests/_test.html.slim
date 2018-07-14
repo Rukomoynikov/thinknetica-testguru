@@ -1,7 +1,7 @@
 tr
   td
     = content_tag :span, test.title, class: 'test-title', data: { test_id: test.id }
-    / = link_to test.title, admin_test_path(test)
+    = link_to test.title, admin_test_path(test)
     = render 'form_inline', test: test == @test ? @test : test
   td = test.level
   td #{ test.questions.count } #{ t('.question', count: test.questions.count)}

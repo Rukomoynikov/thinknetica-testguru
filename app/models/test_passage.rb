@@ -29,14 +29,18 @@ class TestPassage < ApplicationRecord
   end
 
   def progress
-    current_progress = question_number(self)
+    current_progress = question_number
 
-    return 0 if current_progress.zero?
+    return 0 if current_progress < 2
 
-    (current_progress * 100) / test.questions.count
+    ((current_progress - 1) * 100) / (test.questions.count)
   end
 
   private
+
+  def question_number
+    test.questions.find_index { |question| question.id == current_question.id } + 1
+  end
 
   def before_validation_set_first
     self.current_question = test.questions.first if test.present?
