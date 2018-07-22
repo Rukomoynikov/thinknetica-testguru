@@ -22,6 +22,8 @@ ru:
         questions_list: список вопросов
         actions: действия
         prompt: вы уверены ?
+      form_inline:
+        submit: 'OK'
     questions:
       edit:
         title: редактирование вопроса для теста %{test}
