@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_07_01_103645) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
     t.boolean "correct", default: false, null: false
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 2018_07_01_103645) do
   end
 
   create_table "gists", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "question_id"
+    t.bigint "user_id"
+    t.bigint "question_id"
     t.string "gist_hash"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,10 +60,10 @@ ActiveRecord::Schema.define(version: 2018_07_01_103645) do
   end
 
   create_table "tests_users", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "test_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "test_id", null: false
     t.boolean "finished"
-    t.integer "current_question_id"
+    t.bigint "current_question_id"
     t.integer "correct_questions", default: 0
     t.index ["current_question_id"], name: "index_tests_users_on_current_question_id"
   end
@@ -92,4 +95,11 @@ ActiveRecord::Schema.define(version: 2018_07_01_103645) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "gists", "questions"
+  add_foreign_key "gists", "users"
+  add_foreign_key "questions", "tests"
+  add_foreign_key "tests", "categories"
+  add_foreign_key "tests", "users", column: "author_id"
+  add_foreign_key "tests_users", "questions", column: "current_question_id"
 end

@@ -1,13 +1,17 @@
-User.destroy_all
-Category.delete_all
-Test.delete_all
-Question.delete_all
 Answer.delete_all
+Question.delete_all
+Test.delete_all
+Category.delete_all
+User.destroy_all
+Admin.delete_all
 
 User.create([
   { name: 'John', email: 'john@mail.ru' },
   { name: 'Mary', email: 'mary@mail.ru' },
 ])
+
+Admin.create email: 'admin@admin.ru', password: 'password', first_name: 'Admin', last_name: 'Admin'
+Admin.first.confirm
 
 Category.create([
 	{ title: 'html' },
@@ -17,7 +21,7 @@ Category.create([
 ])
 
 Test.create([
-  { title: 'Ruby Language', author: User.first, category: Category.last }
+  { title: 'Ruby Language', author: Admin.first, category: Category.last }
 ])
 
 Question.create([
