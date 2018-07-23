@@ -73,6 +73,14 @@ ru:
     welcome: привет
     exit: выйти
     start: начать
+  feedback:
+    new:
+      title: Если у вас есть предложения, дайте нам знать
+      sender_name: Ваше имя
+      feedback_body: Тело сообщения
+      submit: Отправить
+    create: 
+      message_sent: Сообщение отправлено
   gist:
     title: Вопрос о %{title} с сайта TestGuru
   helpers:

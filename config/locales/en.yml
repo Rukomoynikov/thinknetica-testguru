@@ -69,6 +69,14 @@ en:
     welcome: welcome
     exit: exit
     start: start
+  feedback:
+    new:
+      title: Please send me any feedback.
+      sender_name: Your name
+      feedback_body: Message
+      submit: Submit
+    create: 
+      message_sent: Message sent
   gist:
     title: A question about %{title} from TestGuru
   helpers:

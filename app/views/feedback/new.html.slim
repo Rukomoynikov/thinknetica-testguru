@@ -1,0 +1,15 @@
+.container
+  h1 = t('.title')
+
+  = form_with url: feedback_index_path, method: :post, local: true do |form|
+
+    .form-group
+      = form.label :sender_name, t('.sender_name')
+      = form.text_field :sender_name, class: 'form-control', required: true
+
+    .form-group
+      = form.label :feedback_body, t('.feedback_body')
+      = form.text_area :feedback_body, class: 'form-control', required: true
+
+    .form-group
+      = form.submit t('.submit')
