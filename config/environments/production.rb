@@ -91,4 +91,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.yandex.ru',
+    port: 465,
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
+    tls: true
+  }
+  config.action_mailer.default_url_options = { host: "https://damp-brook-44981.herokuapp.com" }
 end

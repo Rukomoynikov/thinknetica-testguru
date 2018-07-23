@@ -10,7 +10,7 @@ User.create([
   { name: 'Mary', email: 'mary@mail.ru' },
 ])
 
-Admin.create email: 'admin@admin.ru', password: 'password', first_name: 'Admin', last_name: 'Admin'
+Admin.create email: 'admin@edutera.ru', password: 'password', first_name: 'Admin', last_name: 'Admin'
 Admin.first.confirm
 
 Category.create([
